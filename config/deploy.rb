@@ -4,7 +4,7 @@ lock "3.9.1"
 set :application, "suburitest2"
 set :repo_url, "git@github.com:SolomonHD/suburitest2.git"
 set :user, "deploy"
-set :stages, %w(staging)
+set :stages, %w(development)
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids','tmp/cache','tmp/sockets','vendor/bundle', 'public/system')
 set :passenger_restart_with_touch, true
 set :default_env, {
