@@ -1,9 +1,12 @@
+## The d.rb symlink in directory is for shortened command, 'cap d deploy' will work, should probably add same for production
+###The ip address is in /etc/enviroments, these will change depending on server(will be different for QA,Prod)
 role :app, %w{deploy@whpihdev1}
 role :web, %w{deploy@whpihdev1}
 role :db, %w{deploy@whpihdev1}, :primary => true
-set :branch, "master"
-set :rails_env, "development"
-set :deploy_to, "/home/deploy/Apps/suburitest2/"
+### 
+set :branch, "master" #Devs can set this to whatever branch they want
+set :rails_env, "development" #need this for rails to know what environment it is, i.e. qa and production will have "production" here
+set :deploy_to, "/home/deploy/Apps/suburitest2/" #Admins will give devs the proper path to deploy to
 # ======================
 # Defines a single server with a list of roles and multiple properties.
 # You can define all roles on a single server, or split them:

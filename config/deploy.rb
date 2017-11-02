@@ -4,11 +4,11 @@ lock "3.9.1"
 set :application, "suburitest2"
 set :repo_url, "git@github.com:SolomonHD/suburitest2.git"
 set :user, "deploy"
-set :stages, %w(development)
+set :stages, %w(development) #will have to expand this when the other stages are ready.
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids','tmp/cache','tmp/sockets','vendor/bundle', 'public/system')
-set :passenger_restart_with_touch, true
+set :passenger_restart_with_touch, true #This is so passenger can restart itself after devs push. No need for apache reload.
 set :default_env, {
-	'PATH' => "/paths/git-current:/paths/ruby-current:/paths/nodejs-current:$PATH"
+	'PATH' => "/paths/git-current:/paths/ruby-current:/paths/nodejs-current:$PATH" #To access the scl rh-ruby24, et al. 
 }
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
